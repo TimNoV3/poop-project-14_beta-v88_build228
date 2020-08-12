@@ -158,10 +158,10 @@ function task_2(a){
 }
 
 function task_3(a){
-  console.log(mock.filter(elem => elem.address.toLowerCase().indexOf(a) != -1));
+  console.log(mock.filter(elem => elem.address.toLowerCase().includes(a.toLowerCase())));
 }
 function task_4(){
-  var initialValue = 0;
+  let initialValue = 0;
   console.log(mock.reduce(function (accumulator, currentValue) {
     return accumulator + parseFloat(currentValue.finance);
   }, initialValue));
