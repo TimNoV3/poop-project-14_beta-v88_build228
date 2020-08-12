@@ -114,8 +114,7 @@ const task_3 = (array, str) =>
   [...array].filter(elem => elem.address.toLowerCase().includes(str.toLowerCase()));  
   
 
-const task_4 = (array,initialValue = 0) => [...array].reduce(function (accumulator, currentValue) {
-  return accumulator + parseFloat(currentValue.finance);
-}, initialValue);
+const task_4 = (array,initialValue = 0) => [...array].reduce((accumulator, currentValue) =>
+  accumulator + parseFloat(currentValue.finance), initialValue);
 
 task_1(mock,1);
