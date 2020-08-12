@@ -106,65 +106,16 @@ const mock = [
   }
 ];
 
-function task_1(a) {
-  if (a) {
-    console.log(mock.sort(function(a,b){
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    }));
-  }
-  else {
-    console.log(mock.sort(function(a,b){
-      if (a.name > b.name) {
-        return -1;
-      }
-      if (a.name < b.name) {
-        return 1;
-      }
-      return 0;
-    }));
-  }
-}
+const task_1 = (array,key,sortOrder) =>
+  [...array].sort((a,b) => a[key] > b[key] ? 1*sortOrder:-1*sortOrder);
+  
 
+const task_3 = (array, str) => 
+  [...array].filter(elem => elem.address.toLowerCase().includes(str.toLowerCase()));  
+  
 
-function task_2(a){
-  if (a) {
-    console.log(mock.sort(function(a,b){
-      if (a.date > b.date) {
-        return 1;
-      }
-      if (a.date < b.date) {
-        return -1;
-      }
-      return 0;
-    }));
-  }
-  else {
-    console.log(mock.sort(function(a,b){
-      if (a.date > b.date) {
-        return -1;
-      }
-      if (a.date < b.date) {
-        return 1;
-      }
-      return 0;
-    }));
-  }
-}
+const task_4 = (array,initialValue = 0) => [...array].reduce(function (accumulator, currentValue) {
+  return accumulator + parseFloat(currentValue.finance);
+}, initialValue);
 
-function task_3(a){
-  console.log(mock.filter(elem => elem.address.toLowerCase().includes(a.toLowerCase())));
-}
-function task_4(){
-  let initialValue = 0;
-  console.log(mock.reduce(function (accumulator, currentValue) {
-    return accumulator + parseFloat(currentValue.finance);
-  }, initialValue));
-
-}
-
+task_1(mock,1);
