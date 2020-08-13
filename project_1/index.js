@@ -3,7 +3,7 @@
 // console.log(faker.fake(`{{ name.firstName }}`))
 
 document.addEventListener("DOMContentLoaded", function() {
-  var check_tab = 0;
+  let check_tab = 0;
   let tab1 = document.getElementById("tab_1");
   let tab2 = document.getElementById("tab_2");
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let group = document.getElementsByClassName('group_class');
     group = [...group];
     for (let elem of group) {
-      if (!elem.childNodes[0].innerHTML.includes(text)) {
+      if (!elem.childNodes[0].innerHTML.includes(text.trim())) {
         del(tabPanels, elem);
         console.log(elem);
       }
