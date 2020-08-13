@@ -1,6 +1,5 @@
-// // const faker = require('faker');
-// import faker from 'faker';
-// console.log(faker.fake(`{{ name.firstName }}`))
+import faker from 'faker';
+console.log(faker.fake(`{{ name.firstName }}`))
 
 document.addEventListener("DOMContentLoaded", function() {
   let check_tab = 0;
