@@ -1,5 +1,10 @@
 import faker from 'faker';
-console.log(faker.fake(`{{ name.firstName }}`))
+import {v4 as uuid} from 'uuid';
+
+import { create_elem, del_all,del } from './helpers';
+import { generate_cont, search } from './helpers';
+
+console.log(uuid());
 
 document.addEventListener("DOMContentLoaded", function() {
   let check_tab = 0;
@@ -10,71 +15,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let tabPanels = document.getElementById('tab_cont');
   
-  let group_all = ['1','2','3','4']
-  let group_priv = [111,2222,22131,4122231,5123,6,7,8]
+  let group_all = []
+  let group_priv = []
   
- 
-  const del_all = node => {
-    while (node.firstChild) {
-      node.removeChild(node.firstChild);
-    }
+
+  console.log(faker.random.word()); 
+
+
+  for (let i = 0; i < 100; i++) {
+    let obj = new Object;
+    obj.name = faker.name.findName()
+    obj.avatar = faker.image.avatar();
+    obj.type = faker.random.word();
+    obj.follow = faker.random.number();
+    obj.posts = faker.random.number();
+    obj.id = uuid();
+    group_all.push(obj);
   }
 
-  const del = (node, child) => {
-    node.removeChild(child);
-  }
-
-  const create_elem  = (content) => {
-    let div = document.createElement('div');
-    let div_ch = document.createElement('div');
-    div_ch.innerHTML = content;
-    div.classList.add('group_class');
-    div.append(div_ch);
-    
-    tabPanels.append(div);
-  }
-
-  const generate_cont = () => {
-    tab1.classList.add('tab_focus');
-    tab2.classList.remove('tab_focus');
-    for (let elem of group_all){
-      create_elem(elem);
-    }
-  }
+  generate_cont(tab1,tab2,tabPanels,group_all);
   
-  const search = (text) => {
-    let groups = [];
-    if (check_tab == 0) {
-      groups = group_all;
-    }
-    else{
-      groups = group_priv;
-    }
-    del_all(tabPanels);
 
-    for (let elem of groups){
-      create_elem(elem);      
-    }
-    let group = document.getElementsByClassName('group_class');
-    group = [...group];
-    for (let elem of group) {
-      if (!elem.childNodes[0].innerHTML.includes(text.trim())) {
-        del(tabPanels, elem);
-        console.log(elem);
-      }
-      
-    
-   }
-  }
-
-  generate_cont();
+  
 
   search_input.onblur = function() {
     search_input.value = "";
   }
 
   search_input.oninput = function() { 
-    search(search_input.value);
+    search(search_input.value, group_all,group_priv,tabPanels, check_tab);
     console.log(search_input.value);
   }
 
@@ -84,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     tab2.classList.remove('tab_focus');
     del_all(tabPanels);
     for (let elem of group_all){
-      create_elem(elem);
+      create_elem(tabPanels,elem);
     }
   }
   tab2.onclick = function() {
@@ -95,7 +64,37 @@ document.addEventListener("DOMContentLoaded", function() {
     del_all(tabPanels);
 
     for (let elem of group_priv){
-      create_elem(elem);      
+      create_elem(tabPanels,elem,check_tab);      
+    }
+  }
+  tabPanels.onclick = function(event) {
+    let target = event.target;
+    if (target.className === "button_follow") {
+      for (let elem of group_all) {
+        if (elem.id === target.id) {
+          group_priv.push(elem);
+          group_all.splice(group_all.indexOf(elem),1);
+          del(tabPanels,target.parentNode);
+        }
+      }
+    }
+
+    if (target.className === "dropdown-content show") {
+      
+      for (let elem of group_priv) {
+        if (elem.id === target.previousSibling.id) {
+
+          group_all.push(elem);
+          group_priv.splice(group_priv.indexOf(elem),1);
+          del(tabPanels,target.parentNode.parentNode);
+        }
+      }
+    }
+
+    if (target.className === "button_unfollow") {
+      
+      target.nextSibling.classList.toggle("show");
+    
     }
   }
 })
