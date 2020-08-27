@@ -9,8 +9,8 @@ const todo = (props) => {
   return (
     <div className={styles.wrapper} onClick={toggle}>
       <div className={props.completed ? styles.completed : styles.inProgress}>
-        <p>{props.name}</p>
-        {/* Пиши тут комментарий что это за символ */}
+        <div className = {styles.title}><div>{props.name}</div></div>
+        {/* check mark */}
         <div>&#10004;</div>
       </div>
     </div>

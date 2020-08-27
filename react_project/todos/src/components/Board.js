@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 import styles from "../css/Board.module.css";
 
 /** Называй кастомные(пользователские) компоненты с большой буквы! */
-const board = (props) => {
+const Board = (props) => {
   return (
     <main>
       <div className={styles.link}>
-        <NavLink to="/">{props.list[props.match.params.id].name}</NavLink>
+        <NavLink to="/"><div className = {styles.title}>{props.list[props.match.params.id].name}</div></NavLink>
       </div>
       <div className={styles.wrapper}>
         {props.list[props.match.params.id].array.map((todos, id) => {
@@ -29,4 +29,4 @@ const board = (props) => {
   );
 };
 
-export default board;
+export default Board;

@@ -3,22 +3,18 @@ import ButtonCreateTodos from "../containers/ContainerBCBoard";
 import { NavLink } from "react-router-dom";
 import styles from "../css/ListBoard.module.css";
 
-/** 
- * Вместо props можно деструктурировать объект, list_borad = ({ delBoard, listBoard }) => 
- * тогда в коде не придется обращаться к props
- */
-const list_board = (props) => {
+const listBoard = ({delBoard, listBoard}) => {
   const deleteBoard = (id) => {
-    props.delBoard(id)
+    delBoard(id)
   }
   return (
     <main className={styles.listBoard}>
       <ButtonCreateTodos />
-      {props.listBoard.map((board, id) => {
+      {listBoard.map((board, id) => {
         return (
           <div className={styles.link} key={id}>
             <div className = {styles.close} onClick = {() => deleteBoard(id)}>&#215;</div>
-            <NavLink to={`/${id}`}>{board.name}</NavLink>
+            <NavLink to={`/${id}`}><div className = {styles.title}>{board.name}</div></NavLink>
           </div>
         );
       })}
@@ -26,4 +22,4 @@ const list_board = (props) => {
   );
 };
 
-export default list_board;
+export default listBoard;

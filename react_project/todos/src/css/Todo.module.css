@@ -10,19 +10,11 @@
   overflow: hidden;
   cursor: pointer;
 }
-.wrapper p {
-  display: flex;
-  align-items: center;
-  margin: 0 30px;
-  overflow: hidden;
-  height: 30px;
-  width: 30%;
-  text-overflow: ellipsis;
-}
 .completed {
   flex: 1;
   display: flex;
   flex-direction: row;
+  width: 100%;
   text-decoration: line-through;
   background-color: #874AA6;
   border-radius: 3px;
@@ -30,10 +22,24 @@
 }
 
 .inProgress {
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: row;
   text-decoration: none;
   background-color: #9fe7a5;
   border-radius: 3px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 0 30px;
+  width: 40%;
+}
+.title div {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

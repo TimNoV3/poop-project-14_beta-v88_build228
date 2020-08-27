@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 import styles from "../css/ButtonCreateBoard.module.css";
 const ButtonCreateTodos = (props) => {
-  /** Лучше заменить на [isVisible, setVisible] */
-  let [isVis, changeHook] = useState(false);
+  let [isVisible, setVisible] = useState(false);
 
-  const isVisible = () => {
-    changeHook(!isVis);
-  };
+ 
 
   const cancel = () => {
-    changeHook(!isVis);
+    setVisible(!isVisible);
   };
 
   const create = () => {
-    /** Почему текст объявлен с let и не меняется? */
-    let text = document.querySelector("form").input.value.trim();
+    const text = document.querySelector("form").input.value.trim();
     if (text) {
       props.addBoard(text);
-      changeHook(!isVis);
+      setVisible(!isVisible);
     }
   };
 
   return (
     <div className={styles.ButtonCreateBoard}>
-      {isVis ? (
+      {isVisible ? (
         <div className={styles.wrapper}>
           <label>Creating a board</label>
           <form onSubmit={(e) => e.preventDefault()}>
@@ -40,7 +36,7 @@ const ButtonCreateTodos = (props) => {
           </form>
         </div>
       ) : (
-        <button className={styles.button} onClick={isVisible}>
+        <button className={styles.button} onClick={cancel}>
           Create a new board...
         </button>
       )}

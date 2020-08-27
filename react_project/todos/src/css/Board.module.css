@@ -26,12 +26,15 @@
   border-radius: 3px;
   text-shadow: 1px 1px 2px black;
   font-size: 25px;
+  
+}
+.title {
+  flex:1;
   overflow: hidden;
-
-  /** Это свойство не работет, гугли почему и чини :) */
+  white-space: pre;
+  margin: 0 10px;
   text-overflow: ellipsis;
 }
-
 .wrapper {
   display: flex;
   flex-direction: row;

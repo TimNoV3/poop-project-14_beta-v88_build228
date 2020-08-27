@@ -1,15 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./containers/ContainerListBoard.js";
 import reducers from "./reducers";
 import Board from "./containers/ContainerBoard";
 import { loadState, saveState } from "./localStorage/index.js";
 
-/** ЗАчем это */
-// Main (but_create, list_tasks) => tasks(list, but_create_task) => create_window
 const initialValue = [
   {
     name: "task",
@@ -26,15 +24,22 @@ const initialValue = [
 ];
 const persistedState = loadState();
 
+/* eslint-disable */
+const saveStateInLocalStorage = state => next => action => {
+  const result = next(action);
+  saveState(store.getState());
+  console.log(state.getState());
+  return result
+} 
+/* eslint-enable */
+
 const store = createStore(
   reducers,
-  persistedState ? persistedState : initialValue
+  persistedState ? persistedState : initialValue,
+  applyMiddleware(saveStateInLocalStorage)
 );
 
-/** сохранять стор в local storage лучше использую middleware - https://redux.js.org/advanced/middleware */
-store.subscribe(() => {
-  saveState(store.getState());
-});
+
 
 const General = () => {
   return (

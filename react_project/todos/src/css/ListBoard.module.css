@@ -28,9 +28,7 @@
   text-decoration: none;
   width: 200px;
   height: 50px;
-  overflow: hidden;
-
-  text-overflow: ellipsis;
+  
 }
 .close {
   cursor: pointer;
@@ -46,3 +44,11 @@
   opacity: 1;
 }
 
+.title {
+  width: 100%;
+  overflow: hidden;
+  white-space: pre;
+  margin: 0 10px;
+  text-overflow: ellipsis;
+  text-align: center;
+}
