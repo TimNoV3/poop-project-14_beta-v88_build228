@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import Board from "../components/Board.js";
+import { connect } from 'react-redux';
+import Board from '../components/Board.js';
 
 const mapStateToProps = (state) => {
   return {

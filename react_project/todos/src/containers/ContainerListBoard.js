@@ -1,6 +1,6 @@
-import ListBoard from "../components/ListBoard.js";
-import { connect } from "react-redux";
-import { delBoard } from "../actions/index.js"
+import ListBoard from '../components/ListBoard.js';
+import { connect } from 'react-redux';
+import { delBoard } from '../actions/index.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     delBoard: (idBoard) => {
-      dispatch(delBoard(idBoard))
+      dispatch(delBoard(idBoard));
     },
   };
 };

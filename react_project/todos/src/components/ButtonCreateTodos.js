@@ -1,14 +1,14 @@
-import React from "react";
-import Popup from "reactjs-popup";
-import styles from "../css/ButtonCreateTodos.module.css";
-import "../css/main.css";
+import React from 'react';
+import Popup from 'reactjs-popup';
+import styles from '../css/ButtonCreateTodos.module.css';
+import '../css/main.css';
 const Button = (props) => {
   const click = (close) => (e) => {
     e.preventDefault();
     const name = e.target.input.value.trim();
     if (name) {
       props.addTodos(props.id, name);
-      e.target.input.value = "";
+      e.target.input.value = '';
       close();
     }
 
@@ -23,11 +23,7 @@ const Button = (props) => {
       {(close) => (
         <main className={styles.popup}>
           <form className={styles.form} onSubmit={click(close)}>
-            <input
-              className={styles.input}
-              placeholder="  add a list"
-              name="input"
-            ></input>
+            <input className={styles.input} placeholder='  add a list' name='input'></input>
             <p className={styles.par}>give me a name!</p>
           </form>
         </main>

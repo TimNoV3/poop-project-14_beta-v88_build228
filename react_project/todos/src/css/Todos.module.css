@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 .wrapper {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -8,16 +8,15 @@
   flex-direction: column;
   height: 100%;
   width: 173px;
-  
 }
 
 .title {
   text-align: center;
   flex: 1;
   margin: 10px 10px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   overflow: hidden;
-  white-space: pre;  
+  white-space: pre;
   text-overflow: ellipsis;
 }
 
@@ -45,18 +44,18 @@
 }
 
 .closeWrapper {
-  flex:1;
+  flex: 1;
   position: relative;
 }
 
 .close {
   cursor: pointer;
   position: absolute;
-  right:0;
-  top:0;
+  right: 0;
+  top: 0;
   margin-top: -6px;
   margin-right: 3px;
-  font-size:25px;
+  font-size: 25px;
   opacity: 0.3;
 }
 

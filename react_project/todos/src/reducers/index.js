@@ -1,3 +1,3 @@
-import todo_reducer from "./todo";
+import todo_reducer from './todo';
 
 export default todo_reducer;

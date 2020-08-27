@@ -26,10 +26,7 @@ export const helpDelTodo = (board, idTodos, idTodo) => {
 const helperDelTodo = (todos, idTodo) => {
   return {
     ...todos,
-    array: [
-      ...todos.array.slice(0, idTodo),
-      ...todos.array.slice(idTodo + 1),
-    ],
+    array: [...todos.array.slice(0, idTodo), ...todos.array.slice(idTodo + 1)],
   };
 };
 
@@ -46,9 +43,7 @@ const helperToggleTodo = (todos, idTodo) => {
   return {
     ...todos,
     array: todos.array.map((todo, id) => {
-      return id === idTodo
-        ? { name: todo.name, completed: !todo.completed }
-        : todo;
+      return id === idTodo ? { name: todo.name, completed: !todo.completed } : todo;
     }),
   };
 };
@@ -63,9 +58,6 @@ export const helpAddTodos = (board, name) => {
 export const helpDelTodos = (board, idTodos) => {
   return {
     ...board,
-    array: [
-      ...board.array.slice(0, idTodos),
-      ...board.array.slice(idTodos + 1),
-    ],
+    array: [...board.array.slice(0, idTodos), ...board.array.slice(idTodos + 1)],
   };
 };

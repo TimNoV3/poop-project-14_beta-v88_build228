@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
-import Button from "../components/ButtonCreateTodos";
-import { addTodos } from "../actions";
+import { connect } from 'react-redux';
+import Button from '../components/ButtonCreateTodos';
+import { addTodos } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
