@@ -5,6 +5,7 @@ import "../css/main.css";
 const Button = (props) => {
   const click = (close) => (e) => {
     e.preventDefault();
+    /** Зачем тут let? */
     let name = e.target.input.value.trim();
     if (name) {
       props.addTodos(props.id, name);

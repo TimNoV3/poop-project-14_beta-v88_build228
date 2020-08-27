@@ -4,6 +4,7 @@ import Button from "../containers/ContainerBCTodos";
 import { NavLink } from "react-router-dom";
 import styles from "../css/Board.module.css";
 
+/** Называй кастомные(пользователские) компоненты с большой буквы! */
 const board = (props) => {
   return (
     <main>

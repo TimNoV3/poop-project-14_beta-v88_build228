@@ -1,3 +1,5 @@
+/** Типы экшенов нужно вынести в константы, а не хардкодить тут! */
+
 export const addBoard = (name) => ({
   type: "ADD_BOARD",
   name: name,

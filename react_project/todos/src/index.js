@@ -8,6 +8,7 @@ import reducers from "./reducers";
 import Board from "./containers/ContainerBoard";
 import { loadState, saveState } from "./localStorage/index.js";
 
+/** ЗАчем это */
 // Main (but_create, list_tasks) => tasks(list, but_create_task) => create_window
 const initialValue = [
   {
@@ -30,6 +31,7 @@ const store = createStore(
   persistedState ? persistedState : initialValue
 );
 
+/** сохранять стор в local storage лучше использую middleware - https://redux.js.org/advanced/middleware */
 store.subscribe(() => {
   saveState(store.getState());
 });

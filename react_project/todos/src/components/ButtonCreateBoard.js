@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../css/ButtonCreateBoard.module.css";
 const ButtonCreateTodos = (props) => {
+  /** Лучше заменить на [isVisible, setVisible] */
   let [isVis, changeHook] = useState(false);
 
   const isVisible = () => {
@@ -12,6 +13,7 @@ const ButtonCreateTodos = (props) => {
   };
 
   const create = () => {
+    /** Почему текст объявлен с let и не меняется? */
     let text = document.querySelector("form").input.value.trim();
     if (text) {
       props.addBoard(text);

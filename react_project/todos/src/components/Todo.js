@@ -10,6 +10,7 @@ const todo = (props) => {
     <div className={styles.wrapper} onClick={toggle}>
       <div className={props.completed ? styles.completed : styles.inProgress}>
         <p>{props.name}</p>
+        {/* Пиши тут комментарий что это за символ */}
         <div>&#10004;</div>
       </div>
     </div>

@@ -3,6 +3,10 @@ import ButtonCreateTodos from "../containers/ContainerBCBoard";
 import { NavLink } from "react-router-dom";
 import styles from "../css/ListBoard.module.css";
 
+/** 
+ * Вместо props можно деструктурировать объект, list_borad = ({ delBoard, listBoard }) => 
+ * тогда в коде не придется обращаться к props
+ */
 const list_board = (props) => {
   const deleteBoard = (id) => {
     props.delBoard(id)

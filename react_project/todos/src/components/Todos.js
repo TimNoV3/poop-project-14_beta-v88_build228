@@ -8,6 +8,7 @@ const Todos = (props) => {
   }
   const click = (e) => {
     e.preventDefault();
+    /** name объявлен с let и не изменяется */
     let name = e.target.input.value;
     props.addTodo(props.idBoard, props.idTodos, name);
     console.log(props.state[props.idBoard].array[props.idTodos]);
