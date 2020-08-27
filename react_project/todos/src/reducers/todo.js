@@ -1,8 +1,17 @@
 import { helpAddTodo, helpDelTodo, helpToggleTodo, helpAddTodos, helpDelTodos } from './helper.js';
+import {
+  ADD_BOARD,
+  ADD_TODO,
+  ADD_TODOS,
+  DELETE_BOARD,
+  DELETE_TODO,
+  DELETE_TODOS,
+  TOGGLE_TODO,
+} from '../actions/types';
 
 const todo_reducer = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_BOARD':
+    case ADD_BOARD:
       return [
         ...state,
         {
@@ -10,29 +19,29 @@ const todo_reducer = (state = [], action) => {
           array: [],
         },
       ];
-    case 'DELETE_BOARD':
+    case DELETE_BOARD:
       return [...state.slice(0, action.idBoard), ...state.slice(action.idBoard + 1)];
-    case 'ADD_TODO':
+    case ADD_TODO:
       return state.map((board, id) => {
         return id === action.idBoard ? helpAddTodo(board, action.idTodos, action.name) : board;
       });
 
-    case 'DELETE_TODO':
+    case DELETE_TODO:
       return state.map((board, id) => {
         return id === action.idBoard ? helpDelTodo(board, action.idTodos, action.idTodo) : board;
       });
 
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return state.map((board, id) => {
         return id === action.idBoard ? helpToggleTodo(board, action.idTodos, action.idTodo) : board;
       });
 
-    case 'ADD_TODOS':
+    case ADD_TODOS:
       return state.map((board, id) => {
         return id === action.idBoard ? helpAddTodos(board, action.name) : board;
       });
 
-    case 'DELETE_TODOS':
+    case DELETE_TODOS:
       return state.map((board, id) => {
         return id === action.idBoard ? helpDelTodos(board, action.idTodos) : board;
       });
