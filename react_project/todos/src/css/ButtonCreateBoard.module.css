@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ButtonCreateBoard {
+  background-color: #9fe7a5;
+  width: 200px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-right: 15px;
+  margin-top: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+.ButtonCreateBoard label {
+  flex: 1;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.ButtonCreateBoard form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-size: 12px;
+}
+
+.ButtonCreateBoard form label {
+  width: 200px;
+  margin-top: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 2px black;
+}
+
+.ButtonCreateBoard form input {
+  margin: 0 auto;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+  height: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ButtonCreateBoard form input:focus {
+  border: none;
+  outline: none;
+}
+
+.create {
+  background-color: white;
+  border-radius: 0px;
+  color: black;
+  border: none;
+  text-transform: uppercase;
+  width: 77px;
+  margin: 10px 10px;
+  height: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cancel {
+  background-color: #9fe7a5;
+  border: none;
+  height: 50px;
+  text-align: center;
+  width: 77px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  margin: 10px 10px;
+  height: 30px;
+  text-shadow: 1px 1px 2px black;
+}
+
+.button {
+  background-color: #9fe7a5;
+  border: none;
+  height: 50px;
+  text-align: center;
+  width: 200px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}

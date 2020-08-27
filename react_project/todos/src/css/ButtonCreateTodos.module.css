@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+.button {
+  width: 100px;
+  height: 80px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  background-color: #0a2d74;
+  cursor: pointer;
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.input {
+  flex: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 3px;
+  height: 10px;
+  margin: 0 10px;
+  margin-top: 10px;
+}
+
+.input:focus {
+  outline: none;
+}
+.par {
+  text-align: center;
+}

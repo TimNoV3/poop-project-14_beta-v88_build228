@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+.listBoard {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+.link {
+  margin-right: 15px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  height: 50px;
+  border-radius: 3px;
+  position: relative;
+}
+.link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+.close {
+  cursor: pointer;
+  position: absolute;
+  right:0;
+  top:0;
+  margin-top:-10px;
+  font-size:25px;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
